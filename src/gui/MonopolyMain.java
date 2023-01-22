@@ -167,10 +167,12 @@ public class MonopolyMain extends JFrame {
 
 				if (nowPlaying == 0) {
 					// player1's turn
-					int dice1OldValue = dice1.getFaceValue();
-					int dice2OldValue = dice2.getFaceValue();
-					dice1.rollDice();
-					dice2.rollDice();
+					/*
+					 * int dice1OldValue = dice1.getFaceValue1(); int dice2OldValue =
+					 * dice2.getFaceValue2();
+					 */
+					dice1.rollDice(1);
+					dice2.rollDice(2);
 					int dicesTotal = dice1.getFaceValue() + dice2.getFaceValue();
 					System.out.println("dicesTotal:"+dicesTotal);
 					/*
@@ -178,7 +180,6 @@ public class MonopolyMain extends JFrame {
 					 * true; } else { doubleDiceForPlayer1 = false; }
 					 */
 					player1.move(dicesTotal);
-
 					if (Player.ledger.containsKey(player1.getCurrentSquareNumber()) // if bought by someone
 							&& Player.ledger.get(player1.getCurrentSquareNumber()) != player1.getPlayerNumber() // not
 																												// by
@@ -210,10 +211,12 @@ public class MonopolyMain extends JFrame {
 
 				} else if (nowPlaying == 1) {
 					// player2's turn
-					int dice1OldValue = dice1.getFaceValue();
-					int dice2OldValue = dice2.getFaceValue();
-					dice1.rollDice();
-					dice2.rollDice();
+					/*
+					 * int dice1OldValue = dice1.getFaceValue1(); int dice2OldValue =
+					 * dice2.getFaceValue2();
+					 */
+					dice1.rollDice(1);
+					dice2.rollDice(2);
 					int dicesTotal = dice1.getFaceValue() + dice2.getFaceValue();
 					System.out.println("dicesTotal:"+dicesTotal);
 					/*
@@ -252,12 +255,13 @@ public class MonopolyMain extends JFrame {
 
 				} else if (nowPlaying == 2) {
 					// player3's turn
-					int dice1OldValue = dice1.getFaceValue();
-					int dice2OldValue = dice2.getFaceValue();
-					dice1.rollDice();
-					dice2.rollDice();
+					/*
+					 * int dice1OldValue = dice1.getFaceValue1(); int dice2OldValue =
+					 * dice2.getFaceValue2();
+					 */
+					dice1.rollDice(1);
+					dice2.rollDice(2);
 					int dicesTotal = dice1.getFaceValue() + dice2.getFaceValue();
-					System.out.println("dicesTotal:"+dicesTotal);
 					/*
 					 * if (dice1.getFaceValue() == dice2.getFaceValue()) { doubleDiceForPlayer3 =
 					 * true; } else { doubleDiceForPlayer3 = false; }
@@ -294,10 +298,12 @@ public class MonopolyMain extends JFrame {
 
 				} else {
 					// player4's turn
-					int dice1OldValue = dice1.getFaceValue();
-					int dice2OldValue = dice2.getFaceValue();
-					dice1.rollDice();
-					dice2.rollDice();
+					/*
+					 * int dice1OldValue = dice1.getFaceValue1(); int dice2OldValue =
+					 * dice2.getFaceValue2();
+					 */
+					dice1.rollDice(1);
+					dice2.rollDice(2);
 					int dicesTotal = dice1.getFaceValue() + dice2.getFaceValue();
 					System.out.println("dicesTotal:"+dicesTotal);
 					/*

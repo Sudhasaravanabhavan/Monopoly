@@ -19,6 +19,9 @@ public class Square extends JPanel {
 	private static final long serialVersionUID = 1L;
 	int number;
 	private String name;
+
+	private String type;
+	private String colour;
 	String description;
 	JLabel nameLabel;
 	static int totalSquares = 0;
@@ -44,8 +47,27 @@ public class Square extends JPanel {
 	public String getName() {
 		return name;
 	}
-	
-	
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
 	@SuppressWarnings("serial")
 	public Square(int xCoord, int yCoord, int width, int height, String labelString, int rotationDegrees) {
 		number = totalSquares;

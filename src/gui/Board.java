@@ -1,5 +1,10 @@
 package gui;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,7 +15,13 @@ import java.awt.GridBagLayout;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +32,8 @@ public class Board extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Square> allSquares = new ArrayList<Square>();
+
+	private HashMap<String,Square> boardDetails = new HashMap<String,Square>();
 	private ArrayList<Square> unbuyableSquares = new ArrayList<Square>(); // squares like "Go"
 	
 	public ArrayList<Square> getUnbuyableSquares(){
@@ -35,6 +48,8 @@ public class Board extends JPanel {
 		return allSquares.get(location);
 	}
 
+	private static String typeProperty="property";
+
 	public Board(int xCoord, int yCoord, int width, int height) {
 		setBorder(new LineBorder(new Color(3, 3, 3)));
 		setBounds(xCoord, yCoord, 612, 612);
@@ -44,7 +59,46 @@ public class Board extends JPanel {
 
 	private void initializeSquares() {
 		// TODO Auto-generated method stub
-		String[] squareNames = 
+		ArrayList<int[]> dimentions=new ArrayList<>();
+		dimentions.add(new int[]{6,6,150,150,135});
+		dimentions.add(new int[]{156,6,150,150,180});
+		dimentions.add(new int[]{306,6,150,150,180});
+		dimentions.add(new int[]{456,6,150,150,-135});
+		dimentions.add(new int[]{456,156,150,150,-90});
+		dimentions.add(new int[]{456,306,150,150,-90});
+		dimentions.add(new int[]{456,456,150,150,45});
+		dimentions.add(new int[]{306,456,150,150,0});
+		dimentions.add(new int[]{156,456,150,150,0});
+		dimentions.add(new int[]{6,456,150,150,45});
+		dimentions.add(new int[]{6,306,150,150,90});
+		dimentions.add(new int[]{6,156,150,150,90});
+		int i=0;
+		try {
+			JSONParser parser = new JSONParser();
+			JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(
+					"board.json"));
+
+			for (Object o : jsonArray) {
+				JSONObject squareDetail = (JSONObject) o;
+				int[] dimention=dimentions.get(i++ % 12);
+				String name=squareDetail.get("name").toString();
+				String type=squareDetail.get("type").toString();
+				int price=Integer.parseInt(squareDetail.get("price")!=null?squareDetail.get("price").toString():"0");
+				int rentprice=Integer.parseInt(squareDetail.get("rentprice")!=null?squareDetail.get("rentprice").toString():"0");
+				Square square = new Square(dimention[0],dimention[1],dimention[2],dimention[3],name,dimention[4]);
+				square.setPrice(price);
+				square.setRentPrice(rentprice);
+				this.add(square);
+				allSquares.add(square);
+				if(type!=typeProperty) {
+					unbuyableSquares.add(square);
+				}
+				boardDetails.put(squareDetail.get("name").toString(),square);
+			}
+		}catch(Exception e) {
+			System.err.println(e.getMessage());
+		}
+		/*String[] squareNames =
 			{
 				"Go",
 				 "The Burvale Price:1",
@@ -61,10 +115,10 @@ public class Board extends JPanel {
 				 
 				
 						
-		};
+		};*/
 		
 
-		// squares on the top
+		/*// squares on the top
 		Square square00 = new Square(6,6,150,150,squareNames[0],135);
 		this.add(square00);
 		allSquares.add(square00);
@@ -152,7 +206,7 @@ public class Board extends JPanel {
 		square08.setRentPrice(1);
 		
 		square10.setRentPrice(1);
-		square11.setRentPrice(1);
+		square11.setRentPrice(1);*/
 		
 		
 
