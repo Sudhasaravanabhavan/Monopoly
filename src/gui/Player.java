@@ -62,7 +62,7 @@ public class Player extends JPanel {
 		} else {
 			titleDeeds.add(this.getCurrentSquareNumber());
 			ledger.put(squareNumber, this.getPlayerNumber()); // everytime a player buys a title deed, it is written in
-																// ledger, for example square 1 belongs to player 2
+																// ledger.
 
 		}
 	}
@@ -89,17 +89,17 @@ public class Player extends JPanel {
 		super.paintComponent(g);
 	}
 
-	int[] xLocationsOfPlayer1 = { 31, 191, 331, 486, 386, 486, 486, 356, 164, 24, 24, 24};
+	int[] xLocationsOfPlayer1 = { 31, 191, 331, 486, 486, 486, 486, 356, 164, 24, 24, 24};
 
-	int[] yLocationsOfPlayer1 = { 33, 33, 33, 33, 183, 333, 493, 493, 493, 493, 333, 233 };
+	int[] yLocationsOfPlayer1 = { 33, 33, 33, 33, 183, 233, 493, 493, 493, 493, 333, 233 };
 
-	int[] xLocationsOfPlayer2 = { 31, 221, 361, 496, 386, 496, 496, 386, 194, 44, 44, 44};
+	int[] xLocationsOfPlayer2 = { 51, 221, 361, 496, 486, 496, 496, 386, 194, 44, 44, 44};
 	int[] yLocationsOfPlayer2 = { 33, 33, 33, 33, 283, 333, 493, 493, 493, 493, 333, 233 };
 
-	int[] xLocationsOfPlayer3 ={ 31, 221, 361, 496, 386, 496, 496, 386, 194, 44, 44, 44};
+	int[] xLocationsOfPlayer3 ={ 61, 221, 361, 496, 486, 496, 496, 386, 194, 54, 54, 54};
 	int[] yLocationsOfPlayer3 = { 33, 33, 33, 33, 283, 333, 493, 493, 493, 493, 333, 233 };
 	
-	int[] xLocationsOfPlayer4 = { 31, 221, 361, 496, 386, 496, 496, 386, 194, 44, 44, 44};
+	int[] xLocationsOfPlayer4 = { 71, 221, 361, 496, 486, 496, 496, 386, 194, 64, 64, 64};
 	int[] yLocationsOfPlayer4 = { 33, 33, 33, 33, 283, 333, 493, 493, 493, 493, 333, 233 };
 
 	public void move(int dicesTotal) {

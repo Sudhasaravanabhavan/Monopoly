@@ -79,13 +79,12 @@ public class Square extends JPanel {
 
 		if(rotationDegrees == 0) {
 			nameLabel = new JLabel(labelString);
-			nameLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+			nameLabel.setFont(new Font("Lucida Grande", Font.BOLD, 14));
 			nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			nameLabel.setBounds(0,20,this.getWidth(),20);
 			this.add(nameLabel);
 		} else {	
-			// rotating a Jlabel: https://www.daniweb.com/programming/software-development/threads/390060/rotate-jlabel-or-image-in-label
-			
+						
 			nameLabel = new JLabel(labelString) {
 				protected void paintComponent(Graphics g) {
 					Graphics2D g2 = (Graphics2D)g;
@@ -113,7 +112,7 @@ public class Square extends JPanel {
 			if(rotationDegrees == 135 || rotationDegrees == -135 || rotationDegrees == -45 || rotationDegrees == 45) {
 				nameLabel.setBounds(0, 0, this.getWidth(), this.getHeight());
 			}
-			nameLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+			nameLabel.setFont(new Font("Lucida Grande", Font.BOLD, 14));
 			nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			
 			this.add(nameLabel);
