@@ -15,12 +15,12 @@ public class Player extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private int playerNumber;
 	JLabel lblPlayerNumber;
-	static int totalPlayers = 0; 
+	static int totalPlayers = 0;
 	static HashMap<Integer, Integer> ledger = new HashMap<>();
 
-	private int currentSquareNumber = 0; 
-	private ArrayList<Integer> titleDeeds = new ArrayList<Integer>(); 
-	private int wallet = 16; 
+	private int currentSquareNumber = 0;
+	private ArrayList<Integer> titleDeeds = new ArrayList<Integer>();
+	private int wallet = 16;
 
 	public ArrayList<Integer> getTitleDeeds() {
 		return titleDeeds;
@@ -61,7 +61,7 @@ public class Player extends JPanel {
 			System.out.println("It's already bought by someone. You cannot by here.");
 		} else {
 			titleDeeds.add(this.getCurrentSquareNumber());
-			ledger.put(squareNumber, this.getPlayerNumber()); 
+			ledger.put(squareNumber, this.getPlayerNumber());
 		}
 	}
 
@@ -72,14 +72,14 @@ public class Player extends JPanel {
 	}
 
 	public Player(int playerNumber, Color color) {
-		
+
 		this.playerNumber = playerNumber;
 		this.setBackground(color);
 		lblPlayerNumber = new JLabel("" + playerNumber);
 		lblPlayerNumber.setFont(new Font("Lucida Grande", Font.BOLD, 15));
 		lblPlayerNumber.setForeground(Color.WHITE);
 		this.add(lblPlayerNumber);
-		this.setBounds(playerNumber * 30, 33, 20, 28); 
+		this.setBounds(playerNumber * 30, 33, 20, 28);
 		totalPlayers++;
 	}
 
@@ -87,17 +87,17 @@ public class Player extends JPanel {
 		super.paintComponent(g);
 	}
 
-	int[] xLocationsOfPlayer1 = { 31, 191, 331, 486, 486, 486, 486, 356, 164, 24, 24, 24};
+	int[] xLocationsOfPlayer1 = { 31, 191, 331, 486, 486, 486, 486, 356, 164, 24, 24, 24 };
 
 	int[] yLocationsOfPlayer1 = { 33, 33, 33, 33, 183, 233, 493, 493, 493, 493, 333, 233 };
 
-	int[] xLocationsOfPlayer2 = { 51, 221, 361, 496, 486, 496, 496, 386, 194, 44, 44, 44};
+	int[] xLocationsOfPlayer2 = { 51, 221, 361, 496, 486, 496, 496, 386, 194, 44, 44, 44 };
 	int[] yLocationsOfPlayer2 = { 33, 33, 33, 33, 283, 333, 493, 493, 493, 493, 333, 233 };
 
-	int[] xLocationsOfPlayer3 ={ 61, 221, 361, 496, 486, 496, 496, 386, 194, 54, 54, 54};
+	int[] xLocationsOfPlayer3 = { 61, 221, 361, 496, 486, 496, 496, 386, 194, 54, 54, 54 };
 	int[] yLocationsOfPlayer3 = { 33, 33, 33, 33, 283, 333, 493, 493, 493, 493, 333, 233 };
-	
-	int[] xLocationsOfPlayer4 = { 71, 221, 361, 496, 486, 496, 496, 386, 194, 64, 64, 64};
+
+	int[] xLocationsOfPlayer4 = { 71, 221, 361, 496, 486, 496, 496, 386, 194, 64, 64, 64 };
 	int[] yLocationsOfPlayer4 = { 33, 33, 33, 33, 283, 333, 493, 493, 493, 493, 333, 233 };
 
 	public void move(int dicesTotal) {
@@ -123,10 +123,9 @@ public class Player extends JPanel {
 			MonopolyMain.infoConsole
 					.setText("This property belongs to player " + ledger.get(this.getCurrentSquareNumber()));
 		}
-		
+
 	}
 
-	
 	public int getCurrentSquareNumberByCoordinates() {
 
 		int x = this.getX();
