@@ -15,12 +15,12 @@ public class Player extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private int playerNumber;
 	JLabel lblPlayerNumber;
-	static int totalPlayers = 0; // we might need this number later on
+	static int totalPlayers = 0; 
 	static HashMap<Integer, Integer> ledger = new HashMap<>();
 
-	private int currentSquareNumber = 0; // where player is currently located on (0 - 19). initially zero
-	private ArrayList<Integer> titleDeeds = new ArrayList<Integer>(); // squares that the player has
-	private int wallet = 16; // initial money
+	private int currentSquareNumber = 0; 
+	private ArrayList<Integer> titleDeeds = new ArrayList<Integer>(); 
+	private int wallet = 16; 
 
 	public ArrayList<Integer> getTitleDeeds() {
 		return titleDeeds;
@@ -61,9 +61,7 @@ public class Player extends JPanel {
 			System.out.println("It's already bought by someone. You cannot by here.");
 		} else {
 			titleDeeds.add(this.getCurrentSquareNumber());
-			ledger.put(squareNumber, this.getPlayerNumber()); // everytime a player buys a title deed, it is written in
-																// ledger.
-
+			ledger.put(squareNumber, this.getPlayerNumber()); 
 		}
 	}
 
@@ -74,14 +72,14 @@ public class Player extends JPanel {
 	}
 
 	public Player(int playerNumber, Color color) {
-		// TODO Auto-generated constructor stub
+		
 		this.playerNumber = playerNumber;
 		this.setBackground(color);
 		lblPlayerNumber = new JLabel("" + playerNumber);
 		lblPlayerNumber.setFont(new Font("Lucida Grande", Font.BOLD, 15));
 		lblPlayerNumber.setForeground(Color.WHITE);
 		this.add(lblPlayerNumber);
-		this.setBounds(playerNumber * 30, 33, 20, 28); // need to fix here for adjustable player numbers
+		this.setBounds(playerNumber * 30, 33, 20, 28); 
 		totalPlayers++;
 	}
 
@@ -125,12 +123,10 @@ public class Player extends JPanel {
 			MonopolyMain.infoConsole
 					.setText("This property belongs to player " + ledger.get(this.getCurrentSquareNumber()));
 		}
-		// ledger.put(this.getCurrentSquareNumber(), this.getPlayerNumber());
+		
 	}
 
-	// by comparing player's coordinates according to the board, we will get it's
-	// current square number
-	// currently unused, found a better way
+	
 	public int getCurrentSquareNumberByCoordinates() {
 
 		int x = this.getX();

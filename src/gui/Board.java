@@ -34,7 +34,7 @@ public class Board extends JPanel {
 	private ArrayList<Square> allSquares = new ArrayList<Square>();
 
 	private HashMap<String, Square> boardDetails = new HashMap<String, Square>();
-	private ArrayList<Square> unbuyableSquares = new ArrayList<Square>(); // squares like "Go"
+	private ArrayList<Square> unbuyableSquares = new ArrayList<Square>(); 
 
 	public ArrayList<Square> getUnbuyableSquares() {
 		return unbuyableSquares;
@@ -58,7 +58,7 @@ public class Board extends JPanel {
 	}
 
 	private void initializeSquares() {
-		// TODO Auto-generated method stub
+
 		ArrayList<int[]> dimentions = new ArrayList<>();
 		dimentions.add(new int[] { 6, 6, 150, 150, 135 });
 		dimentions.add(new int[] { 156, 6, 150, 150, 180 });
@@ -67,7 +67,7 @@ public class Board extends JPanel {
 		dimentions.add(new int[] { 456, 156, 150, 150, -90 });
 		dimentions.add(new int[] { 456, 306, 150, 150, -90 });
 		dimentions.add(new int[] { 456, 456, 150, 150, 45 });
-		dimentions.add(new int[] { 306, 456, 150, 150, 0});
+		dimentions.add(new int[] { 306, 456, 150, 150, 0 });
 		dimentions.add(new int[] { 156, 456, 150, 150, 0 });
 		dimentions.add(new int[] { 6, 456, 150, 150, 45 });
 		dimentions.add(new int[] { 6, 306, 150, 150, 90 });
@@ -82,7 +82,8 @@ public class Board extends JPanel {
 				int[] dimention = dimentions.get(i++ % 12);
 				String name = squareDetail.get("name").toString();
 				String type = squareDetail.get("type").toString();
-				int price = Integer.parseInt(squareDetail.get("price") != null ? squareDetail.get("price").toString() : "0");
+				int price = Integer
+						.parseInt(squareDetail.get("price") != null ? squareDetail.get("price").toString() : "0");
 				int rentprice = Integer.parseInt(
 						squareDetail.get("rentprice") != null ? squareDetail.get("rentprice").toString() : "0");
 				Square square = new Square(dimention[0], dimention[1], dimention[2], dimention[3], name, dimention[4]);
@@ -90,8 +91,7 @@ public class Board extends JPanel {
 				square.setRentPrice(rentprice);
 				this.add(square);
 				allSquares.add(square);
-				if (!typeProperty.equalsIgnoreCase(type)) 
-				{
+				if (!typeProperty.equalsIgnoreCase(type)) {
 					unbuyableSquares.add(square);
 				}
 				boardDetails.put(squareDetail.get("name").toString(), square);
@@ -99,7 +99,7 @@ public class Board extends JPanel {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		
+
 		JLabel lblMonopoly = new JLabel("WOVEN MONOPOLY") {
 			private static final long serialVersionUID = 1L;
 
