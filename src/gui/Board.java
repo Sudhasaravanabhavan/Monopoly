@@ -67,7 +67,7 @@ public class Board extends JPanel {
 		dimentions.add(new int[] { 456, 156, 150, 150, -90 });
 		dimentions.add(new int[] { 456, 306, 150, 150, -90 });
 		dimentions.add(new int[] { 456, 456, 150, 150, 45 });
-		dimentions.add(new int[] { 306, 456, 150, 150, 0 });
+		dimentions.add(new int[] { 306, 456, 150, 150, 0});
 		dimentions.add(new int[] { 156, 456, 150, 150, 0 });
 		dimentions.add(new int[] { 6, 456, 150, 150, 45 });
 		dimentions.add(new int[] { 6, 306, 150, 150, 90 });
@@ -90,7 +90,8 @@ public class Board extends JPanel {
 				square.setRentPrice(rentprice);
 				this.add(square);
 				allSquares.add(square);
-				if (!typeProperty.equalsIgnoreCase(type)) {
+				if (!typeProperty.equalsIgnoreCase(type)) 
+				{
 					unbuyableSquares.add(square);
 				}
 				boardDetails.put(squareDetail.get("name").toString(), square);
@@ -99,7 +100,7 @@ public class Board extends JPanel {
 			System.err.println(e.getMessage());
 		}
 		
-		JLabel lblMonopoly = new JLabel("MONOPOLY") {
+		JLabel lblMonopoly = new JLabel("WOVEN MONOPOLY") {
 			private static final long serialVersionUID = 1L;
 
 			protected void paintComponent(Graphics g) {
@@ -119,7 +120,7 @@ public class Board extends JPanel {
 		lblMonopoly.setBackground(Color.RED);
 		lblMonopoly.setOpaque(true);
 		lblMonopoly.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMonopoly.setFont(new Font("Lucida Grande", Font.BOLD, 40));
+		lblMonopoly.setFont(new Font("Lucida Grande", Font.BOLD, 20));
 		lblMonopoly.setBounds(179, 277, 263, 55);
 		this.add(lblMonopoly);
 

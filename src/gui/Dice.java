@@ -88,13 +88,7 @@ public class Dice extends JPanel {
 		return faceValue;
 	
 		}
-		/*
-		 * public void rollDice2(){ int len=roll2.length;
-		 * System.out.println("Second i"+i); facevalue2 = roll2[i++%len];
-		 * System.out.println(facevalue2); repaint(); }
-		 * 
-		 * public int getFaceValue2(){ return facevalue2; }
-		 */
+		
 	
 	public Dice(int xCoord, int yCoord, int width, int height, String labelString) {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
