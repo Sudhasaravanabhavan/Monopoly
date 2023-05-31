@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> nos;
+
+    std::cout << "Enter the numbers " ;
+    std::cout<<"press any non number key to stop and press enter to get result" << std::endl;
+
+    int number;
+    while (std::cin >> number) {
+        nos.push_back(number);
+    }
+
+    // descending order sorting
+    std::sort(nos.begin(), nos.end(), std::greater<int>());
+
+    // display numbers
+    std::cout << "Sorted numbers in descending order:" << std::endl;
+    for (const auto& number : nos) {
+        std::cout << number << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
